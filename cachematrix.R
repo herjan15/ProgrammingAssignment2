@@ -33,6 +33,11 @@
 ## for a matrix or its inverse. 
 
 makeCacheMatrix <- function(x = matrix()) {
+        
+        if(!is.matrix(x)) {
+                return("Message : class of input is not matrix!")
+        }
+        
         inverse <- NULL
         
         set <- function(value) {
@@ -56,7 +61,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## This function is used to solve the inverse of the matrix. If the
+## This function is used to solve the inverse of the matrix and store it
+## in argument that is passed into cacheSolve. If the
 ## inverse is not equal to NULL, it will be retrieved as the value
 ## given by the getinverse() function. 
 
