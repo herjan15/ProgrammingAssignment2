@@ -35,7 +35,7 @@
 makeCacheMatrix <- function(x = matrix()) {
         
         if(!is.matrix(x)) {
-                return("Message : class of input is not matrix!")
+                return("Warning : class of input is not matrix!")
         }
         
         inverse <- NULL
@@ -71,12 +71,19 @@ cacheSolve <- function(x, ...) {
         inverse_matrix <- x$getinverse()
         
         if(!is.null(inverse_matrix)) {
+                
+                print(" Message : returning cached inverse!")
+                
                 inverse <- inverse_matrix
         }
         
         else {
+                print(" Message : calculating new inverse!")
+                
                 matrix_x <- x$get()
+                
                 inverse <- solve(matrix_x, ...)
+                
                 x$setinverse(inverse)
         }
         
