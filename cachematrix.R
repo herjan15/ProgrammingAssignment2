@@ -1,3 +1,4 @@
+##
 ## makeCacheMatrix : 
 ##
 ## This function takes a matrix as an input argument
@@ -30,12 +31,13 @@
 ## ----------------------------------------------------------------------------------------
 ##
 ## This function returns a list of functions that can be used to retrive or set values
-## for a matrix or its inverse. 
+## for a matrix or its inverse.
+##
 
 makeCacheMatrix <- function(x = matrix()) {
         
         if(!is.matrix(x)) {
-                return("Warning : class of input is not matrix!")
+                return("class of input is not matrix, exiting function!")
         }
         
         inverse <- NULL
@@ -64,7 +66,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## This function is used to solve the inverse of the matrix and store it
 ## in argument that is passed into cacheSolve. If the
 ## inverse is not equal to NULL, it will be retrieved as the value
-## given by the getinverse() function. 
+## given by the getinverse() function.
 
 cacheSolve <- function(x, ...) {
         
@@ -72,13 +74,13 @@ cacheSolve <- function(x, ...) {
         
         if(!is.null(inverse_matrix)) {
                 
-                print(" Message : returning cached inverse!")
+                print("returning cached inverse!")
                 
                 inverse <- inverse_matrix
         }
         
         else {
-                print(" Message : calculating new inverse!")
+                print("calculating new inverse!")
                 
                 matrix_x <- x$get()
                 
